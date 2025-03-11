@@ -1,0 +1,298 @@
+/**
+ * Hero Section Styles - Improved UI/UX with fullscreen and scroll indicator
+ */
+
+ html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), 
+                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    height: 85vh;
+    min-height: 600px;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.4), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    margin-bottom: 1.8rem;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    line-height: 1.2;
+    position: relative;
+}
+
+.hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.hero p {
+    font-size: 1.35rem;
+    font-weight: 300;
+    margin-bottom: 2.8rem;
+    opacity: 0.95;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+    transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.scroll-indicator span {
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 50px;
+    position: relative;
+}
+
+.scroll-arrow:before,
+.scroll-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    transform: translateX(-50%) rotate(45deg);
+    animation: scrollArrow 1.5s infinite;
+}
+
+.scroll-arrow:after {
+    top: 10px;
+    animation-delay: 0.3s;
+}
+
+@keyframes scrollArrow {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translate(-10px, -10px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translate(0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section transition elements */
+.section-transition {
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.transition-wave {
+    position: absolute;
+    bottom: -1px; /* Ensures no gap */
+    left: 0;
+    width: 100%;
+    height: auto;
+    fill: white;
+}
+
+/* Button styles - improved hover effect */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;  /* Ensure text stays above pseudo-element */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    z-index: -1; /* Place behind button text */
+}
+
+.btn:hover::before {
+    left: 0;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.4);
+    color: white; /* Ensure text remains visible on hover */
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent instead of fully white */
+    color: var(--primary-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+    border-color: transparent;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 600px;
+        height: 100vh;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .scroll-indicator {
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .hero h1::after {
+        width: 60px;
+    }
+}

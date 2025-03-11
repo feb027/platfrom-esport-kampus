@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pertandingan | Unsil E-Sports</title>
+    <meta name="description" content="Hasil lengkap pertandingan e-sports di Universitas Siliwangi. Lihat semua hasil turnamen, statistik, dan prestasi tim.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/results.css">
+    <script src="script.js" defer></script>
+    <script src="js/results-data.js" defer></script>
+    <script src="js/results-functions.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tournament.html">Turnamen</a></li>
+                    <li><a href="schedule.html">Jadwal</a></li>
+                    <li><a href="results.html" class="active">Hasil</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>HASIL PERTANDINGAN</h1>
+                <p>Hasil lengkap pertandingan e-sports Universitas Siliwangi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filter-game">Game</label>
+                        <select id="filter-game">
+                            <option value="all" selected>Semua Game</option>
+                            <option value="mobile-legends">Mobile Legends</option>
+                            <option value="pubg-mobile">PUBG Mobile</option>
+                            <option value="valorant">Valorant</option>
+                            <option value="fifa">FIFA</option>
+                            <option value="free-fire">Free Fire</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-tournament">Turnamen</label>
+                        <select id="filter-tournament">
+                            <option value="all" selected>Semua Turnamen</option>
+                            <!-- Tournament options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-period">Periode</label>
+                        <select id="filter-period">
+                            <option value="all" selected>Semua Waktu</option>
+                            <option value="current-month">Bulan Ini</option>
+                            <option value="last-month">Bulan Lalu</option>
+                            <option value="last-3-months">3 Bulan Terakhir</option>
+                            <option value="current-year">Tahun Ini</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-search">
+                        <label for="filter-search">Cari</label>
+                        <div class="search-input">
+                            <input type="text" id="filter-search" placeholder="Cari tim atau pemain...">
+                            <button type="button" class="search-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="filter-apply">Terapkan Filter</button>
+                    <button class="filter-reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Toggle Section -->
+    <section class="view-toggle-section">
+        <div class="container">
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="tournaments">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
+                    </svg>
+                    Turnamen
+                </button>
+                <button class="view-btn" data-view="matches">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+                    </svg>
+                    Pertandingan
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournaments View -->
+    <section class="tournaments-view" id="tournaments-view">
+        <div class="container">
+            <div class="tournaments-grid">
+                <!-- Tournament result cards will be populated from JavaScript -->
+                <div class="tournament-results-placeholder">
+                    <p>Memuat hasil turnamen...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matches View -->
+    <section class="matches-view" id="matches-view" style="display: none;">
+        <div class="container">
+            <div class="matches-list">
+                <!-- Match result items will be populated from JavaScript -->
+                <div class="match-results-placeholder">
+                    <p>Memuat hasil pertandingan...</p>
+                </div>
+            </div>
+            <div class="load-more">
+                <button class="load-more-btn">Muat Lebih Banyak</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Champions Section -->
+    <section class="champions-section">
+        <div class="container">
+            <h2 class="section-title">Juara Turnamen Terbaru</h2>
+            <div class="champions-slider" id="champions-slider">
+                <!-- Champions cards will be populated from JavaScript -->
+                <div class="champions-placeholder">
+                    <p>Memuat data juara turnamen...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section">
+        <div class="container">
+            <h2 class="section-title">Statistik Turnamen</h2>
+            <div class="statistics-tabs">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="teams">Tim Terbaik</button>
+                    <button class="tab-btn" data-tab="players">Pemain Terbaik</button>
+                    <button class="tab-btn" data-tab="games">Game Populer</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Teams Tab -->
+                    <div class="tab-panel active" id="teams-panel">
+                        <div class="stats-table-container">
+                            <table class="stats-table">
+                                <thead>
+                                    <tr>
+                                        <th>Peringkat</th>
+                                        <th>Tim</th>
+                                        <th>Jurusan/Fakultas</th>
+                                        <th>Total Turnamen</th>
+                                        <th>Juara</th>
+                                        <th>Runner-up</th>
+                                        <th>Poin</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="teams-stats-body">
+                                    <!-- Team stats rows will be populated from JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Players Tab -->
+                    <div class="tab-panel" id="players-panel">
+                        <div class="stats-table-container">
+                            <table class="stats-table">
+                                <thead>
+                                    <tr>
+                                        <th>Peringkat</th>
+                                        <th>Pemain</th>
+                                        <th>Tim</th>
+                                        <th>Game</th>
+                                        <th>MVP</th>
+                                        <th>Pertandingan</th>
+                                        <th>Win Rate</th>
+                                        <th>Poin</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="players-stats-body">
+                                    <!-- Player stats rows will be populated from JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Games Tab -->
+                    <div class="tab-panel" id="games-panel">
+                        <div class="game-stats-grid" id="game-stats-grid">
+                            <!-- Game stats cards will be populated from JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-content">
+                <h2>Unduh Hasil Lengkap</h2>
+                <p>Dapatkan laporan lengkap hasil turnamen dan statistik dalam format Excel atau PDF.</p>
+                <div class="download-buttons">
+                    <a href="#" class="download-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
+                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                        </svg>
+                        PDF Format
+                    </a>
+                    <a href="#" class="download-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z"/>
+                            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                        </svg>
+                        Excel Format
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Archive Section -->
+    <section class="archive-section">
+        <div class="container">
+            <h2 class="section-title">Arsip Turnamen</h2>
+            <div class="archive-years">
+                <div class="year-tabs" id="year-tabs">
+                    <!-- Year tabs will be populated from JavaScript -->
+                </div>
+                <div class="archive-content" id="archive-content">
+                    <!-- Archive content will be populated from JavaScript -->
+                </div>
+            </div>
+            <div class="archive-action">
+                <a href="tournament-archive.html" class="more-button">Lihat Semua Arsip</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // View toggle functionality
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const tournamentsView = document.getElementById('tournaments-view');
+            const matchesView = document.getElementById('matches-view');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const viewType = this.getAttribute('data-view');
+                    if (viewType === 'tournaments') {
+                        tournamentsView.style.display = 'block';
+                        matchesView.style.display = 'none';
+                    } else {
+                        tournamentsView.style.display = 'none';
+                        matchesView.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Statistics tabs functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const tabId = this.getAttribute('data-tab');
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+                    document.getElementById(`${tabId}-panel`).classList.add('active');
+                });
+            });
+            
+            // More detailed functionality will be in results-functions.js
+        });
+    </script>
+</body>
+</html>

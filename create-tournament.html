@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Turnamen | Unsil E-Sports</title>
+    <meta name="description" content="Buat dan kelola turnamen e-sports di Universitas Siliwangi. Jadilah penyelenggara kompetisi gaming kampus!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/create-tournament.css">
+    <script src="script.js" defer></script>
+    <script src="js/tournament-form.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tournament.html" class="active">Turnamen</a></li>
+                    <li><a href="schedule.html">Jadwal</a></li>
+                    <li><a href="results.html">Hasil</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>BUAT TURNAMEN</h1>
+                <p>Buat dan kelola turnamen e-sports kamu sendiri di kampus</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Creation Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-steps">
+                    <div class="step active" data-step="1">1. Informasi Dasar</div>
+                    <div class="step" data-step="2">2. Konfigurasi</div>
+                    <div class="step" data-step="3">3. Pengaturan Tim</div>
+                    <div class="step" data-step="4">4. Konfirmasi</div>
+                </div>
+                
+                <form id="create-tournament-form" class="tournament-creation-form">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step-content active" id="step-1">
+                        <h2 class="form-section-title">Informasi Dasar Turnamen</h2>
+                        
+                        <div class="form-group">
+                            <label for="tournament-name">Nama Turnamen <span class="required">*</span></label>
+                            <input type="text" id="tournament-name" name="tournament-name" placeholder="Contoh: UNSIL Mobile Legends Championship" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tournament-game">Jenis Game <span class="required">*</span></label>
+                            <select id="tournament-game" name="tournament-game" required>
+                                <option value="" selected disabled>-- Pilih Game --</option>
+                                <option value="mobile-legends">Mobile Legends</option>
+                                <option value="pubg-mobile">PUBG Mobile</option>
+                                <option value="valorant">Valorant</option>
+                                <option value="fifa">FIFA</option>
+                                <option value="free-fire">Free Fire</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="other-game-group" style="display: none;">
+                            <label for="other-game">Nama Game Lainnya <span class="required">*</span></label>
+                            <input type="text" id="other-game" name="other-game" placeholder="Masukkan nama game">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Tanggal Mulai <span class="required">*</span></label>
+                                <input type="date" id="start-date" name="start-date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="end-date">Tanggal Selesai <span class="required">*</span></label>
+                                <input type="date" id="end-date" name="end-date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-start-date">Pendaftaran Mulai <span class="required">*</span></label>
+                                <input type="date" id="reg-start-date" name="reg-start-date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reg-end-date">Pendaftaran Selesai <span class="required">*</span></label>
+                                <input type="date" id="reg-end-date" name="reg-end-date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tournament-desc">Deskripsi Turnamen <span class="required">*</span></label>
+                            <textarea id="tournament-desc" name="tournament-desc" rows="4" placeholder="Jelaskan detail turnamen, tujuan, dan informasi penting lainnya" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tournament-banner">Banner Turnamen <span class="required">*</span></label>
+                            <div class="file-input-container">
+                                <input type="file" id="tournament-banner" name="tournament-banner" accept="image/*" required>
+                                <div class="file-input-custom">
+                                    <span class="file-input-text">Pilih file</span>
+                                    <span class="file-input-button">Browse</span>
+                                </div>
+                                <p class="file-input-help">Format: JPG, PNG. Ukuran ideal: 1200x400px. Maks: 2MB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="next-button" data-next="2">Lanjutkan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Tournament Configuration -->
+                    <div class="form-step-content" id="step-2">
+                        <h2 class="form-section-title">Konfigurasi Turnamen</h2>
+                        
+                        <div class="form-group">
+                            <label for="tournament-format">Format Turnamen <span class="required">*</span></label>
+                            <select id="tournament-format" name="tournament-format" required>
+                                <option value="" selected disabled>-- Pilih Format --</option>
+                                <option value="single-elimination">Single Elimination</option>
+                                <option value="double-elimination">Double Elimination</option>
+                                <option value="round-robin">Round Robin</option>
+                                <option value="group-knockout">Group Stage + Knockout</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="match-format">Format Pertandingan <span class="required">*</span></label>
+                            <select id="match-format" name="match-format" required>
+                                <option value="" selected disabled>-- Pilih Format --</option>
+                                <option value="bo1">Best of 1 (BO1)</option>
+                                <option value="bo3">Best of 3 (BO3)</option>
+                                <option value="bo5">Best of 5 (BO5)</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="custom-format-group" style="display: none;">
+                            <label for="custom-format">Format Custom <span class="required">*</span></label>
+                            <input type="text" id="custom-format" name="custom-format" placeholder="Contoh: BO3 untuk grup, BO5 untuk final">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="team-size">Ukuran Tim <span class="required">*</span></label>
+                                <input type="number" id="team-size" name="team-size" min="1" value="5" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="max-teams">Maksimum Tim <span class="required">*</span></label>
+                                <input type="number" id="max-teams" name="max-teams" min="4" max="64" value="16" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="entry-fee">Biaya Pendaftaran (Rp) <span class="required">*</span></label>
+                            <input type="number" id="entry-fee" name="entry-fee" min="0" value="0" required>
+                            <p class="field-help">Masukkan 0 untuk turnamen gratis</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="prize-pool">Total Hadiah (Rp) <span class="required">*</span></label>
+                            <input type="number" id="prize-pool" name="prize-pool" min="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="prize-distribution">Distribusi Hadiah</label>
+                            <textarea id="prize-distribution" name="prize-distribution" rows="3" placeholder="Contoh: Juara 1: 60%, Juara 2: 30%, Juara 3: 10%"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="prev-button" data-prev="1">Kembali</button>
+                            <button type="button" class="next-button" data-next="3">Lanjutkan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Team Settings -->
+                    <div class="form-step-content" id="step-3">
+                        <h2 class="form-section-title">Pengaturan Tim dan Persyaratan</h2>
+                        
+                        <div class="form-group">
+                            <label>Siapa saja yang bisa mendaftar? <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="eligibility-unsil" name="eligibility" value="unsil-only" checked>
+                                    <label for="eligibility-unsil">Hanya Mahasiswa UNSIL</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="eligibility-open" name="eligibility" value="open">
+                                    <label for="eligibility-open">Terbuka untuk Umum</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Dokumen yang diperlukan saat pendaftaran:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="req-ktm" name="requirements[]" value="ktm" checked>
+                                    <label for="req-ktm">Kartu Tanda Mahasiswa (KTM)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="req-id-game" name="requirements[]" value="id-game" checked>
+                                    <label for="req-id-game">ID Game</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="req-whatsapp" name="requirements[]" value="whatsapp" checked>
+                                    <label for="req-whatsapp">Nomor WhatsApp Aktif</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="req-logo" name="requirements[]" value="team-logo">
+                                    <label for="req-logo">Logo Tim</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="req-payment" name="requirements[]" value="payment">
+                                    <label for="req-payment">Bukti Pembayaran</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional-rules">Peraturan Tambahan</label>
+                            <textarea id="additional-rules" name="additional-rules" rows="6" placeholder="Masukkan peraturan tambahan untuk turnamen ini (opsional)"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="prev-button" data-prev="2">Kembali</button>
+                            <button type="button" class="next-button" data-next="4">Lanjutkan</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Organizer Information & Confirmation -->
+                    <div class="form-step-content" id="step-4">
+                        <h2 class="form-section-title">Informasi Penyelenggara</h2>
+                        
+                        <div class="form-group">
+                            <label for="organizer-name">Nama Penyelenggara <span class="required">*</span></label>
+                            <input type="text" id="organizer-name" name="organizer-name" placeholder="Nama lengkap atau nama organisasi" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organizer-email">Email <span class="required">*</span></label>
+                                <input type="email" id="organizer-email" name="organizer-email" placeholder="Email aktif" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organizer-phone">Nomor HP <span class="required">*</span></label>
+                                <input type="tel" id="organizer-phone" name="organizer-phone" placeholder="Contoh: 081234567890" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organizer-nim">NIM (jika mahasiswa)</label>
+                            <input type="text" id="organizer-nim" name="organizer-nim" placeholder="Nomor Induk Mahasiswa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organizer-password">Password <span class="required">*</span></label>
+                            <input type="password" id="organizer-password" name="organizer-password" placeholder="Minimal 8 karakter" required>
+                            <p class="field-help">Password ini akan digunakan untuk mengelola turnamen Anda</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organizer-confirm-password">Konfirmasi Password <span class="required">*</span></label>
+                            <input type="password" id="organizer-confirm-password" name="organizer-confirm-password" placeholder="Ketik ulang password" required>
+                        </div>
+                        
+                        <div class="form-group agreement-group">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="agreement" name="agreement" required>
+                                <label for="agreement">Saya menyatakan bahwa semua informasi yang diberikan adalah benar dan setuju untuk mematuhi <a href="#" class="terms-link">ketentuan layanan</a> platform Unsil E-Sports</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="prev-button" data-prev="3">Kembali</button>
+                            <button type="submit" class="submit-button">Buat Turnamen</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Mengapa Membuat Turnamen di Platform Kami?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎮</div>
+                    <h3>Mudah Dikelola</h3>
+                    <p>Platform kami menyediakan tools untuk mengelola pendaftaran, jadwal, bracket, dan hasil pertandingan secara otomatis.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Visibilitas Tinggi</h3>
+                    <p>Turnamen Anda akan dipromosikan ke seluruh komunitas e-sports Universitas Siliwangi.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Statistik Lengkap</h3>
+                    <p>Dapatkan laporan dan statistik lengkap tentang peserta, pertandingan, dan kinerja tim dalam turnamen Anda.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Dukungan Admin</h3>
+                    <p>Tim kami siap membantu Anda jika terjadi masalah teknis selama turnamen berlangsung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2 class="section-title">Cara Kerja</h2>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Buat Turnamen</h3>
+                        <p>Isi formulir pendaftaran dengan detail turnamen yang akan Anda selenggarakan.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Verifikasi</h3>
+                        <p>Tim kami akan memverifikasi turnamen Anda dalam waktu 24 jam untuk memastikan kualitas.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Publikasikan</h3>
+                        <p>Setelah disetujui, turnamen Anda akan dipublikasikan dan terbuka untuk pendaftaran.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Kelola</h3>
+                        <p>Gunakan dashboard penyelenggara untuk mengelola peserta, jadwal, dan hasil turnamen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni Penyelenggara</h2>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimoni 1">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Platform ini sangat membantu saya dalam menyelenggarakan turnamen e-sports pertama untuk HMJ Teknik Informatika. Semua berjalan lancar dan peserta sangat puas!"</p>
+                        <p class="testimonial-author">Ahmad Fauzan</p>
+                        <p class="testimonial-position">Ketua HMJ Teknik Informatika</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimoni 2">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Saya berhasil menyelenggarakan turnamen PUBG Mobile dengan lebih dari 20 tim peserta. Fitur bracket otomatis dan sistem penilaian sangat memudahkan pekerjaan panitia."</p>
+                        <p class="testimonial-author">Siti Nurhaliza</p>
+                        <p class="testimonial-position">Koordinator Acara BEM UNSIL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan Umum</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah ada biaya untuk membuat turnamen?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tidak, membuat dan mengelola turnamen di platform kami sepenuhnya gratis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah saya bisa membatalkan turnamen yang sudah dibuat?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, Anda dapat membatalkan turnamen kapan saja sebelum turnamen dimulai. Jika sudah ada peserta yang mendaftar, kami akan membantu menginformasikan pembatalan kepada mereka.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana cara mengelola pertandingan dan skor?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Setelah turnamen dibuat, Anda akan mendapatkan akses ke dashboard penyelenggara di mana Anda dapat mengatur jadwal pertandingan, memasukkan hasil, dan memperbarui bracket turnamen secara otomatis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Berapa lama proses verifikasi turnamen?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Proses verifikasi biasanya membutuhkan waktu 1-2 hari kerja. Kami akan mengirimkan notifikasi ke email Anda setelah turnamen diverifikasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h2>Butuh Bantuan?</h2>
+                    <p>Tim kami siap membantu Anda untuk membuat dan mengelola turnamen dengan sukses. Jangan ragu untuk menghubungi kami jika memiliki pertanyaan.</p>
+                </div>
+                <div class="contact-action">
+                    <a href="mailto:esports@unsil.ac.id" class="contact-button">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Ini hanya contoh JavaScript dasar untuk navigasi form langkah demi langkah
+        // File JavaScript yang lebih lengkap akan disediakan di js/tournament-form.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigasi antar langkah
+            const nextButtons = document.querySelectorAll('.next-button');
+            const prevButtons = document.querySelectorAll('.prev-button');
+            const steps = document.querySelectorAll('.step');
+            const stepContents = document.querySelectorAll('.form-step-content');
+            
+            // Next button behavior
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const nextStep = this.getAttribute('data-next');
+                    
+                    // Hide all steps and contents
+                    steps.forEach(step => step.classList.remove('active'));
+                    stepContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show current step
+                    document.querySelector(`.step[data-step="${nextStep}"]`).classList.add('active');
+                    document.getElementById(`step-${nextStep}`).classList.add('active');
+                    
+                    // Scroll to top of form
+                    document.querySelector('.form-container').scrollIntoView({behavior: 'smooth'});
+                });
+            });
+            
+            // Previous button behavior
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const prevStep = this.getAttribute('data-prev');
+                    
+                    // Hide all steps and contents
+                    steps.forEach(step => step.classList.remove('active'));
+                    stepContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show current step
+                    document.querySelector(`.step[data-step="${prevStep}"]`).classList.add('active');
+                    document.getElementById(`step-${prevStep}`).classList.add('active');
+                    
+                    // Scroll to top of form
+                    document.querySelector('.form-container').scrollIntoView({behavior: 'smooth'});
+                });
+            });
+        });
+    </script>
+</body>
+</html>

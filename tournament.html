@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Turnamen | Unsil E-Sports</title>
+    <meta name="description" content="Daftarkan tim kamu dalam turnamen e-sports Universitas Siliwangi dan tunjukkan kemampuan terbaikmu.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <script src="script.js" defer></script>
+    <script src="js/form-validation.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tournament.html" class="active">Turnamen</a></li>
+                    <li><a href="schedule.html">Jadwal</a></li>
+                    <li><a href="results.html">Hasil</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>TURNAMEN E-SPORTS</h1>
+                <p>Ikuti atau buat turnamen e-sports kampus Universitas Siliwangi</p>
+                <a href="create-tournament.html" class="cta-button">Buat Turnamen Baru</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Tournaments Section -->
+    <section class="tournaments-section">
+        <div class="container">
+            <h2 class="section-title">Turnamen Yang Sedang Berlangsung</h2>
+            
+            <div class="tournaments-grid">
+                <!-- Tournament Card 1 -->
+                <div class="tournament-card">
+                    <div class="tournament-banner">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=200&q=80" alt="Mobile Legends Tournament">
+                        <div class="tournament-status open">Pendaftaran Dibuka</div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3>UNSIL Mobile Legends Championship</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎮</span>
+                                <span>Mobile Legends</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>5 vs 5</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span>Rp 3.000.000</span>
+                            </div>
+                        </div>
+                        <div class="tournament-dates">
+                            <div class="date-item">
+                                <span class="date-label">Pendaftaran:</span>
+                                <span class="date-value">10 - 25 September 2023</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Pelaksanaan:</span>
+                                <span class="date-value">30 September - 10 Oktober 2023</span>
+                            </div>
+                        </div>
+                        <div class="tournament-description">
+                            <p>Turnamen Mobile Legends terbesar di Universitas Siliwangi dengan total hadiah jutaan rupiah. Terbuka untuk seluruh mahasiswa aktif.</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="join-tournament.html?id=ml-championship" class="cta-button">Ikuti Turnamen</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tournament Card 2 -->
+                <div class="tournament-card">
+                    <div class="tournament-banner">
+                        <img src="https://images.unsplash.com/photo-1518131945814-df06f707ae9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=200&q=80" alt="PUBG Mobile Tournament">
+                        <div class="tournament-status open">Pendaftaran Dibuka</div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3>UNSIL PUBG Mobile Battle</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎮</span>
+                                <span>PUBG Mobile</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>Squad (4 orang)</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span>Rp 2.500.000</span>
+                            </div>
+                        </div>
+                        <div class="tournament-dates">
+                            <div class="date-item">
+                                <span class="date-label">Pendaftaran:</span>
+                                <span class="date-value">15 - 28 September 2023</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Pelaksanaan:</span>
+                                <span class="date-value">5 - 15 Oktober 2023</span>
+                            </div>
+                        </div>
+                        <div class="tournament-description">
+                            <p>Buktikan tim PUBG Mobile terbaik di Unsil dan rebut total hadiah jutaan rupiah. Turnamen ini terbuka untuk seluruh mahasiswa aktif.</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="join-tournament.html?id=pubg-battle" class="cta-button">Ikuti Turnamen</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tournament Card 3 -->
+                <div class="tournament-card">
+                    <div class="tournament-banner">
+                        <img src="https://images.unsplash.com/photo-1560253023-fa94f6e46f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=200&q=80" alt="Valorant Tournament">
+                        <div class="tournament-status soon">Segera Dibuka</div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3>UNSIL Valorant Challenge</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎮</span>
+                                <span>Valorant</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>5 vs 5</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span>Rp 3.500.000</span>
+                            </div>
+                        </div>
+                        <div class="tournament-dates">
+                            <div class="date-item">
+                                <span class="date-label">Pendaftaran:</span>
+                                <span class="date-value">1 - 15 Oktober 2023</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Pelaksanaan:</span>
+                                <span class="date-value">20 - 30 Oktober 2023</span>
+                            </div>
+                        </div>
+                        <div class="tournament-description">
+                            <p>Turnamen Valorant pertama di Unsil dengan total hadiah terbesar. Siapkan timmu dan tunjukkan skill terbaikmu!</p>
+                        </div>
+                        <div class="tournament-action">
+                            <button class="cta-button disabled">Segera Dibuka</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Tournaments Section -->
+    <section class="upcoming-tournaments-section">
+        <div class="container">
+            <h2 class="section-title">Turnamen Yang Akan Datang</h2>
+            
+            <div class="tournaments-grid">
+                <!-- Upcoming Tournament -->
+                <div class="tournament-card upcoming">
+                    <div class="tournament-banner">
+                        <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=200&q=80" alt="Free Fire Tournament">
+                        <div class="tournament-status upcoming">Akan Datang</div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3>UNSIL Free Fire Championship</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎮</span>
+                                <span>Free Fire</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>Squad (4 orang)</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🏆</span>
+                                <span>Rp 2.000.000</span>
+                            </div>
+                        </div>
+                        <div class="tournament-dates">
+                            <div class="date-item">
+                                <span class="date-label">Pendaftaran:</span>
+                                <span class="date-value">1 - 15 November 2023</span>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-label">Pelaksanaan:</span>
+                                <span class="date-value">20 - 30 November 2023</span>
+                            </div>
+                        </div>
+                        <div class="tournament-description">
+                            <p>Turnamen Free Fire terbesar di Universitas Siliwangi. Siapkan tim kamu dan tunjukkan skill terbaikmu!</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="#" class="notification-button">Ingatkan Saya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Past Tournaments Section -->
+    <section class="past-tournaments-section">
+        <div class="container">
+            <h2 class="section-title">Turnamen Sebelumnya</h2>
+            
+            <div class="tournaments-grid">
+                <!-- Past Tournament -->
+                <div class="tournament-card past">
+                    <div class="tournament-banner">
+                        <img src="https://images.unsplash.com/photo-1560253758-d727e52944d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=200&q=80" alt="FIFA Tournament">
+                        <div class="tournament-status completed">Selesai</div>
+                    </div>
+                    <div class="tournament-content">
+                        <h3>UNSIL FIFA 2023 Championship</h3>
+                        <div class="tournament-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎮</span>
+                                <span>FIFA 2023</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👤</span>
+                                <span>Solo</span>
+                            </div>
+                        </div>
+                        <div class="tournament-dates">
+                            <div class="date-item">
+                                <span class="date-label">Tanggal:</span>
+                                <span class="date-value">5 - 10 Agustus 2023</span>
+                            </div>
+                        </div>
+                        <div class="tournament-winner">
+                            <span class="winner-label">Pemenang:</span>
+                            <span class="winner-name">Budi Setiawan (Teknik Informatika)</span>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="tournament-detail.html?id=fifa-2023" class="details-button">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-action">
+                <a href="tournament-archive.html" class="more-button">Lihat Semua Turnamen Sebelumnya</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tournament FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan Umum</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Siapa yang bisa membuat turnamen?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Semua mahasiswa Universitas Siliwangi dapat membuat turnamen. Namun, turnamen harus diverifikasi oleh admin terlebih dahulu sebelum dipublikasikan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana cara mendaftarkan tim untuk turnamen?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Klik tombol "Ikuti Turnamen" pada turnamen yang kamu inginkan, kemudian isi formulir pendaftaran dan lakukan konfirmasi pembayaran jika diperlukan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah mahasiswa dari luar Universitas Siliwangi boleh mendaftar?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Umumnya tidak, turnamen hanya terbuka untuk mahasiswa aktif Universitas Siliwangi. Namun untuk beberapa turnamen khusus yang bersifat terbuka, mahasiswa dari universitas lain dapat ikut berpartisipasi.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana pembagian hadiah turnamen?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pembagian hadiah berbeda untuk setiap turnamen. Detail pembagian hadiah dapat dilihat pada halaman detail turnamen masing-masing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana jika terjadi masalah teknis selama pertandingan?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Setiap turnamen memiliki admin yang bertugas mengawasi jalannya pertandingan. Segera laporkan masalah teknis kepada admin turnamen untuk mendapatkan solusi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

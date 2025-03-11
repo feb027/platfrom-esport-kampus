@@ -1,0 +1,81 @@
+/**
+ * Join Community Section Styles
+ */
+
+ .join-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/join-bg.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.join-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.4), rgba(0, 0, 0, 0.6));
+    z-index: 1;
+}
+
+.join-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.join-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.join-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.join-btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .join-content h2 {
+        font-size: 2rem;
+    }
+    
+    .join-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .join-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}

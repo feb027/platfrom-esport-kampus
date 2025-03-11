@@ -1,0 +1,610 @@
+/* Hero Section Styles */
+.page-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.page-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tournaments Section Styles */
+.tournaments-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.tournament-card {
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.tournament-banner {
+    position: relative;
+}
+
+.tournament-banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tournament-status {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tournament-status.open {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.tournament-status.soon {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+/* Tournament Cards - Additional Styles */
+.tournament-status.upcoming {
+    background-color: #9b59b6; /* Ungu untuk turnamen yang akan datang */
+    color: white;
+}
+
+.tournament-status.completed {
+    background-color: #7f8c8d; /* Abu-abu untuk turnamen yang sudah selesai */
+    color: white;
+}
+
+.tournament-winner {
+    margin: var(--spacing-sm) 0;
+    font-size: 0.95rem;
+}
+
+.winner-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-right: var(--spacing-xs);
+}
+
+.winner-name {
+    color: var(--primary-color);
+}
+
+.notification-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.notification-button:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.details-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.details-button:hover {
+    background-color: var(--light-bg);
+    color: var(--secondary-color);
+}
+
+.section-action {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* Past Tournaments Section */
+.past-tournaments-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-bg);
+}
+
+/* Upcoming Tournaments Section */
+.upcoming-tournaments-section {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+}
+
+.tournament-content {
+    padding: var(--spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament-content h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+}
+
+.tournament-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.meta-icon {
+    font-size: 1.1rem;
+}
+
+.tournament-dates {
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.date-item {
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.date-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-right: var(--spacing-xs);
+}
+
+.tournament-description {
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.tournament-action {
+    margin-top: auto;
+}
+
+.cta-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cta-button.disabled:hover {
+    background-color: #bbb;
+    transform: none;
+}
+
+/* Registration Form Styles */
+.registration-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-bg);
+}
+
+.form-container {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tournament-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.required {
+    color: var(--danger-color);
+}
+
+input, select, textarea {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.file-input-container {
+    position: relative;
+}
+
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.file-input-custom {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.file-input-text {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: white;
+    color: #777;
+}
+
+.file-input-button {
+    padding: 12px 15px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.file-input-help {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.form-member {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.member-header {
+    margin-bottom: var(--spacing-sm);
+}
+
+.member-header h4 {
+    color: var(--secondary-color);
+}
+
+.pubg-only {
+    display: none;
+}
+
+.agreement-group {
+    margin-top: var(--spacing-md);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+}
+
+.terms-link {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex: 2;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.reset-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 12px 25px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex: 1;
+}
+
+.reset-button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Rules Section Styles */
+.rules-section {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+}
+
+.rules-tabs {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tab-nav {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    color: var(--text-color);
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    background-color: white;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    padding: var(--spacing-md) 0;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-color);
+}
+
+.rules-list {
+    padding-left: var(--spacing-lg);
+}
+
+.rules-list li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-bg);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: var(--spacing-sm);
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 var(--spacing-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal), padding var(--transition-normal);
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    max-height: 500px;
+}
+
+.faq-answer p, .faq-answer ul {
+    margin-bottom: var(--spacing-sm);
+}
+
+.faq-answer ul {
+    padding-left: var(--spacing-lg);
+}
+
+.faq-answer ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .tournaments-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .form-container {
+        padding: var(--spacing-md);
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .tab-nav {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex-grow: 1;
+        text-align: center;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 576px) {
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .tournament-content h3 {
+        font-size: 1.1rem;
+    }
+}

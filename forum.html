@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Diskusi | Unsil E-Sports</title>
+    <meta name="description" content="Forum diskusi komunitas e-sports Universitas Siliwangi. Diskusikan strategi, tim, turnamen, dan berbagi pengalaman seputar gaming.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <script src="script.js" defer></script>
+    <script src="js/forum-data.js" defer></script>
+    <script src="js/forum-functions.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tournament.html">Turnamen</a></li>
+                    <li><a href="schedule.html">Jadwal</a></li>
+                    <li><a href="results.html">Hasil</a></li>
+                    <li><a href="forum.html" class="active">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>FORUM DISKUSI</h1>
+                <p>Bergabung dalam komunitas e-sports Universitas Siliwangi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Main Content -->
+    <section class="forum-main">
+        <div class="container">
+            <div class="forum-layout">
+                <!-- Sidebar - Forum Categories -->
+                <div class="forum-sidebar">
+                    <div class="user-panel">
+                        <div class="user-panel-content" id="user-panel-content">
+                            <!-- User content will be populated by JavaScript -->
+                            <!-- Not logged in state by default -->
+                            <div class="login-prompt">
+                                <h3>Masuk ke Forum</h3>
+                                <p>Silahkan masuk untuk ikut berdiskusi dan memulai topik baru</p>
+                                <div class="login-buttons">
+                                    <a href="login.html" class="btn btn-primary">Masuk</a>
+                                    <a href="register.html" class="btn btn-outline">Daftar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forum-categories">
+                        <h3>Kategori Forum</h3>
+                        <ul class="category-list" id="category-list">
+                            <!-- Categories will be populated by JavaScript -->
+                            <li class="category-loading">Memuat kategori...</li>
+                        </ul>
+                    </div>
+
+                    <div class="forum-stats">
+                        <h3>Statistik Forum</h3>
+                        <div class="stats-container" id="stats-container">
+                            <!-- Stats will be populated by JavaScript -->
+                            <div class="stat-item">
+                                <span class="stat-label">Total Topik</span>
+                                <span class="stat-value">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Komentar</span>
+                                <span class="stat-value">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Anggota Terdaftar</span>
+                                <span class="stat-value">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Anggota Baru</span>
+                                <span class="stat-value">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forum-online">
+                        <h3>Sedang Online</h3>
+                        <div class="online-users" id="online-users">
+                            <!-- Online users will be populated by JavaScript -->
+                            <div class="online-count">
+                                <span class="online-dot"></span>
+                                <span class="online-number">--</span> Pengguna
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content - Forum Threads -->
+                <div class="forum-content">
+                    <div class="forum-header">
+                        <div class="forum-actions">
+                            <div class="search-container">
+                                <input type="text" class="search-input" placeholder="Cari di forum...">
+                                <button class="search-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="new-topic-btn" class="btn btn-primary new-topic-btn">Topik Baru</button>
+                        </div>
+
+                        <div class="forum-filters">
+                            <div class="filter-dropdown">
+                                <select id="filter-category">
+                                    <option value="all">Semua Kategori</option>
+                                    <!-- Category options will be populated by JavaScript -->
+                                </select>
+                            </div>
+                            <div class="filter-dropdown">
+                                <select id="filter-sort">
+                                    <option value="latest">Terbaru</option>
+                                    <option value="popular">Terpopuler</option>
+                                    <option value="most-replies">Balasan Terbanyak</option>
+                                    <option value="newest">Terlama</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forum-breadcrumb">
+                        <ul>
+                            <li><a href="forum.html">Forum</a></li>
+                            <li id="breadcrumb-category"></li>
+                        </ul>
+                    </div>
+
+                    <div class="thread-list" id="thread-list">
+                        <!-- Thread items will be populated by JavaScript -->
+                        <div class="loading-threads">
+                            <div class="loading-spinner"></div>
+                            <p>Memuat topik diskusi...</p>
+                        </div>
+                    </div>
+
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Discussions Section -->
+    <section class="popular-discussions">
+        <div class="container">
+            <h2 class="section-title">Diskusi Populer</h2>
+            <div class="discussions-grid" id="popular-discussions-grid">
+                <!-- Popular discussions will be populated by JavaScript -->
+                <div class="loading-discussions">
+                    <div class="loading-spinner"></div>
+                    <p>Memuat diskusi populer...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Guidelines Section -->
+    <section class="forum-guidelines">
+        <div class="container">
+            <div class="guidelines-content">
+                <h2>Panduan Forum</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline-card">
+                        <div class="guideline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Hormati Semua Anggota</h3>
+                        <p>Bersikaplah sopan dan hormati pendapat anggota lain meskipun berbeda dengan pendapat Anda.</p>
+                    </div>
+                    
+                    <div class="guideline-card">
+                        <div class="guideline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z"/>
+                            </svg>
+                        </div>
+                        <h3>Jaga Keamanan Akun</h3>
+                        <p>Jangan pernah membagikan informasi pribadi seperti password, email, atau nomor telepon di forum.</p>
+                    </div>
+                    
+                    <div class="guideline-card">
+                        <div class="guideline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Laporkan Konten Tidak Pantas</h3>
+                        <p>Jika Anda melihat konten yang melanggar peraturan forum, segera laporkan kepada moderator.</p>
+                    </div>
+                    
+                    <div class="guideline-card">
+                        <div class="guideline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                            </svg>
+                        </div>
+                        <h3>Berkontribusilah Secara Positif</h3>
+                        <p>Berikan komentar yang konstruktif dan informatif untuk menciptakan diskusi yang bermanfaat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Topic Modal -->
+    <div class="modal" id="new-topic-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Buat Topik Baru</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="new-topic-form">
+                    <div class="form-group">
+                        <label for="topic-title">Judul</label>
+                        <input type="text" id="topic-title" placeholder="Masukkan judul topik..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic-category">Kategori</label>
+                        <select id="topic-category" required>
+                            <!-- Categories will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic-content">Konten</label>
+                        <textarea id="topic-content" rows="6" placeholder="Tuliskan isi topik diskusi..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic-tags">Tag (opsional)</label>
+                        <input type="text" id="topic-tags" placeholder="Pisahkan tag dengan koma...">
+                        <span class="form-help">Contoh: Mobile Legends, Strategy, Tournament</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline cancel-btn">Batal</button>
+                        <button type="submit" class="btn btn-primary submit-btn">Kirim Topik</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show/hide new topic modal
+            const newTopicBtn = document.getElementById('new-topic-btn');
+            const newTopicModal = document.getElementById('new-topic-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const cancelBtn = document.querySelector('.cancel-btn');
+            
+            newTopicBtn.addEventListener('click', function() {
+                newTopicModal.style.display = 'flex';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                newTopicModal.style.display = 'none';
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                newTopicModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target === newTopicModal) {
+                    newTopicModal.style.display = 'none';
+                }
+            });
+            
+            // Handle new topic form submission (will be implemented in forum-functions.js)
+            const newTopicForm = document.getElementById('new-topic-form');
+            newTopicForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Submit logic will be in forum-functions.js
+                alert('Fitur ini akan segera tersedia!');
+                newTopicModal.style.display = 'none';
+            });
+            
+            // Other functionality will be implemented in forum-functions.js
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pertandingan | Unsil E-Sports</title>
+    <meta name="description" content="Jadwal lengkap pertandingan e-sports di Universitas Siliwangi. Lihat kapan tim favoritmu bertanding!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <script src="script.js" defer></script>
+    <script src="js/schedule-functions.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tournament.html">Turnamen</a></li>
+                    <li><a href="schedule.html" class="active">Jadwal</a></li>
+                    <li><a href="results.html">Hasil</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>JADWAL PERTANDINGAN</h1>
+                <p>Lihat semua jadwal pertandingan e-sports di Universitas Siliwangi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filter-game">Game</label>
+                        <select id="filter-game">
+                            <option value="all" selected>Semua Game</option>
+                            <option value="mobile-legends">Mobile Legends</option>
+                            <option value="pubg-mobile">PUBG Mobile</option>
+                            <option value="valorant">Valorant</option>
+                            <option value="fifa">FIFA</option>
+                            <option value="free-fire">Free Fire</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-tournament">Turnamen</label>
+                        <select id="filter-tournament">
+                            <option value="all" selected>Semua Turnamen</option>
+                            <option value="ml-championship">UNSIL Mobile Legends Championship</option>
+                            <option value="pubg-battle">UNSIL PUBG Mobile Battle</option>
+                            <option value="valorant-challenge">UNSIL Valorant Challenge</option>
+                            <option value="antar-jurusan">Turnamen Antar Jurusan</option>
+                            <option value="antar-fakultas">Turnamen Antar Fakultas</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-date">Tanggal</label>
+                        <input type="date" id="filter-date">
+                    </div>
+                    <div class="filter-group filter-search">
+                        <label for="filter-search">Cari</label>
+                        <div class="search-input">
+                            <input type="text" id="filter-search" placeholder="Cari tim...">
+                            <button type="button" class="search-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="filter-apply">Terapkan Filter</button>
+                    <button class="filter-reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Toggle Section -->
+    <section class="view-toggle-section">
+        <div class="container">
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="calendar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    </svg>
+                    Kalender
+                </button>
+                <button class="view-btn" data-view="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    Daftar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar View -->
+    <section class="calendar-view" id="calendar-view">
+        <div class="container">
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button class="calendar-prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </button>
+                    <h2 class="calendar-month">September 2023</h2>
+                    <button class="calendar-next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="calendar-grid">
+                <div class="calendar-weekdays">
+                    <div>Min</div>
+                    <div>Sen</div>
+                    <div>Sel</div>
+                    <div>Rab</div>
+                    <div>Kam</div>
+                    <div>Jum</div>
+                    <div>Sab</div>
+                </div>
+                <div class="calendar-days">
+                    <!-- Row 1 -->
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day">
+                        <div class="day-number">1</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">2</div>
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div class="calendar-day">
+                        <div class="day-number">3</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">4</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">5</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">6</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">7</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">8</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">9</div>
+                    </div>
+                    
+                    <!-- Row 3 -->
+                    <div class="calendar-day">
+                        <div class="day-number">10</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">11</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">12</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">13</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">14</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">15</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">16</div>
+                    </div>
+                    
+                    <!-- Row 4 -->
+                    <div class="calendar-day">
+                        <div class="day-number">17</div>
+                    </div>
+                    <div class="calendar-day has-event">
+                        <div class="day-number">18</div>
+                        <div class="day-events">
+                            <div class="day-event" data-event-type="mobile-legends">
+                                <span class="event-time">14:00</span>
+                                <span class="event-name">TI vs TS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">19</div>
+                    </div>
+                    <div class="calendar-day has-event">
+                        <div class="day-number">20</div>
+                        <div class="day-events">
+                            <div class="day-event" data-event-type="pubg-mobile">
+                                <span class="event-time">16:30</span>
+                                <span class="event-name">FE vs FM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">21</div>
+                    </div>
+                    <div class="calendar-day has-event">
+                        <div class="day-number">22</div>
+                        <div class="day-events">
+                            <div class="day-event" data-event-type="valorant">
+                                <span class="event-time">15:00</span>
+                                <span class="event-name">TI vs FE</span>
+                            </div>
+                            <div class="day-event" data-event-type="mobile-legends">
+                                <span class="event-time">18:30</span>
+                                <span class="event-name">TS vs FM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">23</div>
+                    </div>
+                    
+                    <!-- Row 5 -->
+                    <div class="calendar-day">
+                        <div class="day-number">24</div>
+                    </div>
+                    <div class="calendar-day has-event">
+                        <div class="day-number">25</div>
+                        <div class="day-events">
+                            <div class="day-event" data-event-type="valorant">
+                                <span class="event-time">19:00</span>
+                                <span class="event-name">USL vs USD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">26</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">27</div>
+                    </div>
+                    <div class="calendar-day has-event">
+                        <div class="day-number">28</div>
+                        <div class="day-events">
+                            <div class="day-event" data-event-type="free-fire">
+                                <span class="event-time">13:00</span>
+                                <span class="event-name">TI vs FM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">29</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-number">30</div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #ea4c89;"></span>
+                    <span class="legend-text">Mobile Legends</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #f39c12;"></span>
+                    <span class="legend-text">PUBG Mobile</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #3498db;"></span>
+                    <span class="legend-text">Valorant</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #2ecc71;"></span>
+                    <span class="legend-text">FIFA</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #e74c3c;"></span>
+                    <span class="legend-text">Free Fire</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- List View -->
+    <section class="list-view" id="list-view" style="display: none;">
+        <div class="container">
+            <div class="list-header">
+                <h2>Pertandingan Mendatang</h2>
+            </div>
+            <div class="matches-list">
+                <!-- Match 1 -->
+                <div class="match-item" data-game="mobile-legends" data-tournament="antar-jurusan">
+                    <div class="match-date">
+                        <span class="day">18</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/3498db/ffffff&text=TI&fontsize=13" alt="Team A Logo">
+                                <span>Teknik Informatika</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/e74c3c/ffffff&text=TS&fontsize=13" alt="Team B Logo">
+                                <span>Teknik Sipil</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">14:00 WIB</div>
+                            <div class="match-game">Mobile Legends</div>
+                            <div class="match-tournament">Turnamen Antar Jurusan</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">BO3</span>
+                            <span class="match-stage">Group Stage</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+                
+                <!-- Match 2 -->
+                <div class="match-item" data-game="pubg-mobile" data-tournament="antar-fakultas">
+                    <div class="match-date">
+                        <span class="day">20</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/f39c12/ffffff&text=FE&fontsize=13" alt="Team C Logo">
+                                <span>Fakultas Ekonomi</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/2ecc71/ffffff&text=FM&fontsize=13" alt="Team D Logo">
+                                <span>Fakultas MIPA</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">16:30 WIB</div>
+                            <div class="match-game">PUBG Mobile</div>
+                            <div class="match-tournament">Turnamen Antar Fakultas</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">4 Maps</span>
+                            <span class="match-stage">Semifinals</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+                
+                <!-- Match 3 -->
+                <div class="match-item" data-game="mobile-legends" data-tournament="antar-jurusan">
+                    <div class="match-date">
+                        <span class="day">22</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/e74c3c/ffffff&text=TS&fontsize=13" alt="Team B Logo">
+                                <span>Teknik Sipil</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/2ecc71/ffffff&text=FM&fontsize=13" alt="Team D Logo">
+                                <span>Fakultas MIPA</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">18:30 WIB</div>
+                            <div class="match-game">Mobile Legends</div>
+                            <div class="match-tournament">Turnamen Antar Jurusan</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">BO3</span>
+                            <span class="match-stage">Group Stage</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+                
+                <!-- Match 4 -->
+                <div class="match-item" data-game="valorant" data-tournament="valorant-challenge">
+                    <div class="match-date">
+                        <span class="day">22</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/3498db/ffffff&text=TI&fontsize=13" alt="Team A Logo">
+                                <span>Teknik Informatika</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/f39c12/ffffff&text=FE&fontsize=13" alt="Team C Logo">
+                                <span>Fakultas Ekonomi</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">15:00 WIB</div>
+                            <div class="match-game">Valorant</div>
+                            <div class="match-tournament">UNSIL Valorant Challenge</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">BO3</span>
+                            <span class="match-stage">Quarterfinals</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+                
+                <!-- Match 5 -->
+                <div class="match-item" data-game="valorant" data-tournament="valorant-challenge">
+                    <div class="match-date">
+                        <span class="day">25</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/3498db/ffffff&text=USL&fontsize=13" alt="Team E Logo">
+                                <span>UNSIL Esports</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/9b59b6/ffffff&text=USD&fontsize=13" alt="Team F Logo">
+                                <span>UNSOED Esports</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">19:00 WIB</div>
+                            <div class="match-game">Valorant</div>
+                            <div class="match-tournament">Regional University League</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">BO5</span>
+                            <span class="match-stage">Finals</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+                
+                <!-- Match 6 -->
+                <div class="match-item" data-game="free-fire" data-tournament="antar-jurusan">
+                    <div class="match-date">
+                        <span class="day">28</span>
+                        <span class="month">SEP</span>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-teams">
+                            <div class="team team-a">
+                                <img src="https://place-hold.it/40x40/3498db/ffffff&text=TI&fontsize=13" alt="Team A Logo">
+                                <span>Teknik Informatika</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-b">
+                                <img src="https://place-hold.it/40x40/2ecc71/ffffff&text=FM&fontsize=13" alt="Team D Logo">
+                                <span>Fakultas MIPA</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-time">13:00 WIB</div>
+                            <div class="match-game">Free Fire</div>
+                            <div class="match-tournament">Turnamen Antar Jurusan</div>
+                        </div>
+                        <div class="match-meta">
+                            <span class="match-format">4 Maps</span>
+                            <span class="match-stage">Group Stage</span>
+                        </div>
+                    </div>
+                    <div class="match-action">
+                        <a href="#" class="watch-button">Tonton</a>
+                        <a href="#" class="remind-button">Ingatkan</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn">Muat Lebih Banyak</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">Pertandingan Unggulan Minggu Ini</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-banner">
+                        <img src="https://images.unsplash.com/photo-1560253758-d727e52944d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Featured Match">
+                        <div class="highlight-badge">Featured</div>
+                    </div>
+                    <div class="highlight-details">
+                        <h3>UNSIL Esports vs UNSOED Esports</h3>
+                        <div class="highlight-info">
+                            <div class="highlight-date">25 September 2023</div>
+                            <div class="highlight-time">19:00 WIB</div>
+                            <div class="highlight-game">Valorant</div>
+                        </div>
+                        <p class="highlight-description">Final turnamen Regional University League akan mempertemukan dua tim terbaik dari Universitas Siliwangi dan Universitas Jenderal Soedirman!</p>
+                        <div class="highlight-actions">
+                            <a href="#" class="watch-button">Lihat Detail</a>
+                            <a href="#" class="remind-button">Ingatkan Saya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ICAL Export Section -->
+    <section class="export-section">
+        <div class="container">
+            <div class="export-content">
+                <h2>Sinkronkan dengan Kalender Kamu</h2>
+                <p>Jangan lewatkan pertandingan favorit kamu! Tambahkan jadwal langsung ke kalender Google, Apple, atau aplikasi kalender lainnya.</p>
+                <div class="export-buttons">
+                    <a href="#" class="export-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2a1 1 0 0 0-1 1v9zM7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                        </svg>
+                        Unduh iCal
+                    </a>
+                    <a href="#" class="export-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492v-9.75zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                        </svg>
+                        Google Calendar
+                    </a>
+                    <a href="#" class="export-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        </svg>
+                        Apple Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // View Toggle Function
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const calendarView = document.getElementById('calendar-view');
+            const listView = document.getElementById('list-view');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding view
+                    const viewType = this.getAttribute('data-view');
+                    if (viewType === 'calendar') {
+                        calendarView.style.display = 'block';
+                        listView.style.display = 'none';
+                    } else {
+                        calendarView.style.display = 'none';
+                        listView.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Filter functionality will be implemented in schedule-functions.js
+            
+            // Calendar navigation
+            const calendarMonth = document.querySelector('.calendar-month');
+            const calendarPrev = document.querySelector('.calendar-prev');
+            const calendarNext = document.querySelector('.calendar-next');
+            
+            // More detailed calendar functionality will be in schedule-functions.js
+        });
+    </script>
+</body>
+</html>

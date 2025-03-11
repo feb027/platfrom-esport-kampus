@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsil E-Sports | Platform E-Sports Universitas Siliwangi</title>
+    <meta name="description" content="Platform resmi untuk komunitas e-sports Universitas Siliwangi. Ikuti turnamen, jadwal pertandingan, dan informasi seputar e-sports kampus.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/beranda/beranda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="script.js" defer></script>
+    <!-- Add home data and functions scripts -->
+    <script src="js/home-data.js" defer></script>
+    <script src="js/home-functions.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="tournament.html">Turnamen</a></li>
+                    <li><a href="schedule.html">Jadwal</a></li>
+                    <li><a href="results.html">Hasil</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>UNSIL E-SPORTS</h1>
+                <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                <div class="hero-buttons">
+                    <a href="tournament.html" class="btn btn-primary">Ikuti Turnamen</a>
+                    <a href="schedule.html" class="btn btn-secondary">Lihat Jadwal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News Section -->
+    <section class="featured-news">
+        <div class="container">
+            <h2 class="section-title">Berita Terbaru</h2>
+            <div class="news-slider-container">
+                <div class="news-slider" id="featured-news-slider">
+                    <!-- News slides will be populated by JavaScript -->
+                    <div class="news-slide-placeholder">
+                        <p>Memuat berita terbaru...</p>
+                    </div>
+                </div>
+                <div class="news-dots" id="news-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Matches Section -->
+    <section class="upcoming-matches-section">
+        <div class="container">
+            <h2 class="section-title">Pertandingan Mendatang</h2>
+            <div class="upcoming-matches" id="upcoming-matches">
+                <!-- Upcoming matches will be populated by JavaScript -->
+                <div class="matches-loading">
+                    <p>Memuat pertandingan mendatang...</p>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="schedule.html" class="view-more-btn">Lihat Semua Jadwal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tournaments Section -->
+    <section class="featured-tournaments">
+        <div class="container">
+            <h2 class="section-title">Turnamen Yang Sedang Dibuka</h2>
+            <div class="tournaments-grid" id="tournaments-grid">
+                <!-- Tournament cards will be populated by JavaScript -->
+                <div class="tournaments-loading">
+                    <p>Memuat turnamen...</p>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="tournament.html" class="view-more-btn">Lihat Semua Turnamen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent News Section -->
+    <section class="recent-news">
+        <div class="container">
+            <h2 class="section-title">Berita & Pengumuman</h2>
+            <div class="recent-news-grid" id="recent-news-grid">
+                <!-- Recent news cards will be populated by JavaScript -->
+                <div class="news-loading">
+                    <p>Memuat berita...</p>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="news.html" class="view-more-btn">Lihat Semua Berita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community Section -->
+    <section class="join-section">
+        <div class="container">
+            <div class="join-content">
+                <h2>Gabung Komunitas E-Sports Kampus</h2>
+                <p>Jadilah bagian dari komunitas e-sports kampus untuk mendapatkan informasi terupdate seputar turnamen, jadwal pertandingan, dan kegiatan lainnya.</p>
+                <a href="register.html" class="join-btn">Gabung Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/LOGO-UNSIL.png" alt="Logo Unsil E-Sports">
+                    <p>Platform resmi komunitas e-sports Universitas Siliwangi</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tournament.html">Turnamen</a></li>
+                        <li><a href="schedule.html">Jadwal</a></li>
+                        <li><a href="results.html">Hasil</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontak</h3>
+                    <p>Email: esports@unsil.ac.id</p>
+                    <p>Instagram: @unsilesports</p>
+                    <p>Discord: discord.gg/unsilesports</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Unsil E-Sports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
