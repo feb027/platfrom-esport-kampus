@@ -7,6 +7,10 @@
     <meta name="description" content="Jadwal lengkap pertandingan e-sports di Universitas Siliwangi. Lihat kapan tim favoritmu bertanding!">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/beranda/beranda.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="script.js" defer></script>
     <script src="js/schedule-functions.js" defer></script>
 </head>
@@ -26,13 +30,48 @@
                     <li><a href="forum.html">Forum</a></li>
                 </ul>
             </nav>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button class="nav-search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn" aria-label="User menu">
+                        <i class="fas fa-user-circle"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-content">
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Masuk
+                        </a>
+                        <a href="register.html" class="dropdown-item">
+                            <i class="fas fa-user-plus"></i>
+                            Daftar
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
+    <div class="overlay"></div>
+    
+    <!-- Search Panel -->
+    <div class="search-panel">
+        <div class="search-container">
+            <form class="search-form">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cari turnamen, tim, atau berita..." aria-label="Search">
+                <button type="button" class="search-close" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="page-hero">
@@ -125,7 +164,7 @@
                             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                         </svg>
                     </button>
-                    <h2 class="calendar-month">September 2023</h2>
+                    <h2 class="calendar-month">Maret 2025</h2>
                     <button class="calendar-next">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -534,17 +573,17 @@
             <div class="highlights-grid">
                 <div class="highlight-card">
                     <div class="highlight-banner">
-                        <img src="https://images.unsplash.com/photo-1560253758-d727e52944d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Featured Match">
+                        <img src="/assets/hasil1.png" alt="Featured Match">
                         <div class="highlight-badge">Featured</div>
                     </div>
                     <div class="highlight-details">
-                        <h3>UNSIL Esports vs UNSOED Esports</h3>
+                        <h3>UNSIL Esports vs UBHARA Esports</h3>
                         <div class="highlight-info">
                             <div class="highlight-date">25 September 2023</div>
                             <div class="highlight-time">19:00 WIB</div>
                             <div class="highlight-game">Valorant</div>
                         </div>
-                        <p class="highlight-description">Final turnamen Regional University League akan mempertemukan dua tim terbaik dari Universitas Siliwangi dan Universitas Jenderal Soedirman!</p>
+                        <p class="highlight-description">Final turnamen Regional University League akan mempertemukan dua tim terbaik dari Universitas Siliwangi dan Universitas Bhayangkara!</p>
                         <div class="highlight-actions">
                             <a href="#" class="watch-button">Lihat Detail</a>
                             <a href="#" class="remind-button">Ingatkan Saya</a>

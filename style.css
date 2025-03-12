@@ -170,50 +170,6 @@ button, .cta-button {
     max-height: 50px;
 }
 
-.main-nav ul {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-.main-nav a {
-    color: var(--secondary-color);
-    font-weight: 600;
-    padding: var(--spacing-xs) 0;
-    position: relative;
-}
-
-.main-nav a::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width var(--transition-normal);
-}
-
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    border-radius: 5px;
-    transition: all var(--transition-normal);
-}
 
 /* Footer Styles */
 .main-footer {

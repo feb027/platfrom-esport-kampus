@@ -7,6 +7,10 @@
     <meta name="description" content="Hasil lengkap pertandingan e-sports di Universitas Siliwangi. Lihat semua hasil turnamen, statistik, dan prestasi tim.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/beranda/beranda.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="script.js" defer></script>
     <script src="js/results-data.js" defer></script>
     <script src="js/results-functions.js" defer></script>
@@ -27,13 +31,48 @@
                     <li><a href="forum.html">Forum</a></li>
                 </ul>
             </nav>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button class="nav-search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn" aria-label="User menu">
+                        <i class="fas fa-user-circle"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-content">
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Masuk
+                        </a>
+                        <a href="register.html" class="dropdown-item">
+                            <i class="fas fa-user-plus"></i>
+                            Daftar
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
+    <div class="overlay"></div>
+    
+    <!-- Search Panel -->
+    <div class="search-panel">
+        <div class="search-container">
+            <form class="search-form">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cari turnamen, tim, atau berita..." aria-label="Search">
+                <button type="button" class="search-close" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="page-hero">

@@ -6,7 +6,10 @@
     <title>Unsil E-Sports | Platform E-Sports Universitas Siliwangi</title>
     <meta name="description" content="Platform resmi untuk komunitas e-sports Universitas Siliwangi. Ikuti turnamen, jadwal pertandingan, dan informasi seputar e-sports kampus.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/beranda/beranda.css">
+    <link rel="stylesheet" href="css/beranda/news-section.css">
+    <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="script.js" defer></script>
     <!-- Add home data and functions scripts -->
@@ -29,13 +32,48 @@
                     <li><a href="forum.html">Forum</a></li>
                 </ul>
             </nav>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button class="nav-search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn" aria-label="User menu">
+                        <i class="fas fa-user-circle"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-content">
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Masuk
+                        </a>
+                        <a href="register.html" class="dropdown-item">
+                            <i class="fas fa-user-plus"></i>
+                            Daftar
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
+    <div class="overlay"></div>
+    
+    <!-- Search Panel -->
+    <div class="search-panel">
+        <div class="search-container">
+            <form class="search-form">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cari turnamen, tim, atau berita..." aria-label="Search">
+                <button type="button" class="search-close" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -49,6 +87,11 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
+        <!-- The transition effect will be rendered by CSS ::after pseudo-element -->
     </section>
 
     <!-- Featured News Section -->
@@ -57,12 +100,64 @@
             <h2 class="section-title">Berita Terbaru</h2>
             <div class="news-slider-container">
                 <div class="news-slider" id="featured-news-slider">
-                    <!-- News slides will be populated by JavaScript -->
-                    <div class="news-slide-placeholder">
-                        <p>Memuat berita terbaru...</p>
+                    <!-- News slides will be dynamically populated, but here's the structure -->
+                    <div class="news-slide active">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tim TI Legends Juara">
+                                <span class="news-category">Turnamen</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>Tim TI Legends Juara Mobile Legends Campus Cup</h3>
+                                <div class="news-meta">
+                                    <span><i class="far fa-calendar"></i> 25 Juli 2023</span>
+                                    <span><i class="far fa-user"></i> Admin</span>
+                                </div>
+                                <p class="news-excerpt">Tim TI Legends dari Teknik Informatika berhasil menjadi juara dalam turnamen Mobile Legends Campus Cup setelah mengalahkan TE Voltage di final dengan skor 3-1.</p>
+                                <a href="news-detail.html?id=news-1" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-slide">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80" alt="Jadwal Valorant">
+                                <span class="news-category">Pengumuman</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>Jadwal Resmi Turnamen Valorant Campus 2023</h3>
+                                <div class="news-meta">
+                                    <span><i class="far fa-calendar"></i> 18 September 2023</span>
+                                    <span><i class="far fa-user"></i> Admin</span>
+                                </div>
+                                <p class="news-excerpt">UKM E-Sports UNSIL resmi mengumumkan jadwal turnamen Valorant Campus 2023 yang akan diselenggarakan pada bulan Oktober 2023.</p>
+                                <a href="news-detail.html?id=news-2" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-slide">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Workshop Pro Player">
+                                <span class="news-category">Event</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>Workshop: Menjadi Pro Player E-Sports</h3>
+                                <div class="news-meta">
+                                    <span><i class="far fa-calendar"></i> 15 September 2023</span>
+                                    <span><i class="far fa-user"></i> Admin</span>
+                                </div>
+                                <p class="news-excerpt">Workshop tentang bagaimana menjadi pro player e-sports akan diselenggarakan pada 30 September 2023 dengan menghadirkan pro player dari tim profesional.</p>
+                                <a href="news-detail.html?id=news-3" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="news-dots" id="news-dots"></div>
+                <div class="news-dots" id="news-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -99,29 +194,19 @@
         </div>
     </section>
 
-    <!-- Recent News Section -->
-    <section class="recent-news">
-        <div class="container">
-            <h2 class="section-title">Berita & Pengumuman</h2>
-            <div class="recent-news-grid" id="recent-news-grid">
-                <!-- Recent news cards will be populated by JavaScript -->
-                <div class="news-loading">
-                    <p>Memuat berita...</p>
-                </div>
-            </div>
-            <div class="view-more">
-                <a href="news.html" class="view-more-btn">Lihat Semua Berita</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Join Community Section -->
     <section class="join-section">
+        <i class="fas fa-gamepad floating-icon"></i>
+        <i class="fas fa-trophy floating-icon"></i>
+        <i class="fas fa-headset floating-icon"></i>
         <div class="container">
             <div class="join-content">
-                <h2>Gabung Komunitas E-Sports Kampus</h2>
+                <h2>Ayo berkompetisi</h2>
                 <p>Jadilah bagian dari komunitas e-sports kampus untuk mendapatkan informasi terupdate seputar turnamen, jadwal pertandingan, dan kegiatan lainnya.</p>
-                <a href="register.html" class="join-btn">Gabung Sekarang</a>
+                <a href="register.html" class="join-btn">
+                    Gabung Sekarang
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>

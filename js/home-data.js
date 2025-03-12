@@ -9,9 +9,16 @@
 const featuredNewsData = [
     {
         id: 'news-1',
-        title: 'Tim TI Legends Juara Mobile Legends Campus Cup',
-        excerpt: 'Tim TI Legends dari Teknik Informatika berhasil menjadi juara dalam turnamen Mobile Legends Campus Cup setelah mengalahkan TE Voltage di final dengan skor 3-1.',
-        date: '2023-07-25',
+        title: 'Tim T1 Legends Juara Mobile Legends Campus Cup',
+        excerpt: 'Tim T1 Legends dari Teknik Informatika berhasil menjadi juara dalam turnamen Mobile Legends Campus Cup setelah mengalahkan TE Voltage di final dengan skor 3-1.',
+        content: [
+            'Tim T1 Legends dari Teknik Informatika berhasil mengukir sejarah dengan menjadi juara dalam turnamen Mobile Legends Campus Cup 2024. Kemenangan ini diraih setelah mengalahkan tim TE Voltage dari Teknik Elektro dalam pertandingan final yang berlangsung sengit dengan skor akhir 3-1.',
+            'Pertandingan final yang digelar di Aula Fakultas Teknik pada Sabtu (25/7) berlangsung sangat menegangkan. T1 Legends menunjukkan performa yang luar biasa sejak awal pertandingan dengan strategi yang matang dan koordinasi tim yang solid.',
+            'Kapten tim T1 Legends, Ahmad Rizky, mengungkapkan bahwa kemenangan ini adalah hasil dari latihan intensif selama tiga bulan terakhir. "Kami berlatih hampir setiap hari, menganalisis meta game terkini, dan mempersiapkan berbagai strategi untuk menghadapi setiap lawan," ujarnya setelah pertandingan.',
+            'Turnamen Mobile Legends Campus Cup 2024 ini diikuti oleh 32 tim dari berbagai fakultas di Universitas Siliwangi. Total hadiah yang diperebutkan mencapai Rp 10 juta, dengan T1 Legends membawa pulang hadiah utama sebesar Rp 5 juta.',
+            'Ketua UKM E-Sports UNSIL, Budi Santoso, menyatakan bahwa turnamen ini merupakan bukti berkembangnya ekosistem e-sports di lingkungan kampus. "Kami berharap prestasi ini dapat memotivasi mahasiswa lain untuk terlibat dalam e-sports dan mengharumkan nama kampus di level yang lebih tinggi," tambahnya.'
+        ],
+        date: '2024-07-25',
         image: 'assets/news1.jpg',
         category: 'Turnamen',
         link: 'news-detail.html?id=news-1'
@@ -20,7 +27,19 @@ const featuredNewsData = [
         id: 'news-2',
         title: 'Jadwal Resmi Turnamen Valorant Campus 2023',
         excerpt: 'UKM E-Sports UNSIL resmi mengumumkan jadwal turnamen Valorant Campus 2023 yang akan diselenggarakan pada bulan Oktober 2023.',
-        date: '2023-09-18',
+        content: [
+            'UKM E-Sports Universitas Siliwangi (UNSIL) resmi mengumumkan jadwal pelaksanaan turnamen Valorant Campus 2023. Turnamen yang ditunggu-tunggu ini akan diselenggarakan mulai tanggal 15 hingga 30 Oktober 2023.',
+            'Turnamen ini akan mengusung format yang berbeda dari tahun sebelumnya, dengan sistem grup di babak awal dilanjutkan dengan sistem single elimination di babak playoff. Total 16 tim akan bertanding memperebutkan total hadiah senilai Rp 7,5 juta.',
+            'Koordinator turnamen, Deni Hermawan, menjelaskan beberapa perubahan penting dalam turnamen tahun ini. "Kami menerapkan sistem veto map yang lebih adil dan menghadirkan observer khusus untuk meningkatkan kualitas streaming pertandingan," jelasnya dalam konferensi pers virtual.',
+            'Jadwal lengkap turnamen:',
+            '- Pendaftaran: 1-30 September 2023',
+            '- Technical Meeting: 10 Oktober 2023',
+            '- Babak Grup: 15-22 Oktober 2023',
+            '- Babak Playoff: 23-29 Oktober 2023',
+            '- Grand Final: 30 Oktober 2023',
+            'Pendaftaran dapat dilakukan secara online melalui website resmi UKM E-Sports UNSIL dengan biaya pendaftaran Rp 200.000 per tim. Setiap tim wajib terdiri dari 5 pemain inti dan 1 pemain cadangan.'
+        ],
+        date: '2024-09-18',
         image: 'assets/news2.jpg',
         category: 'Pengumuman',
         link: 'news-detail.html?id=news-2'
@@ -29,7 +48,19 @@ const featuredNewsData = [
         id: 'news-3',
         title: 'Workshop: Menjadi Pro Player E-Sports',
         excerpt: 'Workshop tentang bagaimana menjadi pro player e-sports akan diselenggarakan pada 30 September 2023 dengan menghadirkan pro player dari tim profesional.',
-        date: '2023-09-15',
+        content: [
+            'UKM E-Sports UNSIL bekerja sama dengan EVOS Esports akan menyelenggarakan workshop bertema "Pathway to Become a Pro Player" pada tanggal 30 September 2023. Workshop ini akan menghadirkan beberapa pro player dan pelatih dari tim profesional EVOS Esports.',
+            'Workshop ini akan membahas berbagai aspek penting dalam karir sebagai pro player, termasuk:',
+            '- Mental preparation dan manajemen stress',
+            '- Latihan efektif dan pengembangan skill',
+            '- Membangun personal branding',
+            '- Manajemen waktu antara gaming dan pendidikan',
+            '- Tips dan trik menjadi pro player',
+            'Pembicara utama dalam workshop ini adalah Gustian "REKT" Hidayat, pro player Valorant EVOS, dan Cahya "Cahyogen" Nugraha, pelatih tim Mobile Legends EVOS Legends. Keduanya akan berbagi pengalaman dan memberikan insight berharga bagi para peserta.',
+            'Workshop akan dilaksanakan di Aula Fakultas Teknik UNSIL mulai pukul 09.00 WIB. Pendaftaran dapat dilakukan secara online dengan biaya Rp 50.000 per orang, termasuk sertifikat dan merchandise eksklusif.',
+            'Ketua panitia workshop, Siti Nurhaliza, mengatakan bahwa acara ini merupakan kesempatan emas bagi mahasiswa yang bermimpi menjadi pro player. "Kami berharap workshop ini dapat memberikan gambaran jelas tentang dunia e-sports profesional dan membantu peserta memahami langkah-langkah yang diperlukan untuk mencapai mimpi mereka," ujarnya.'
+        ],
+        date: '2024-09-15',
         image: 'assets/news3.jpg',
         category: 'Event',
         link: 'news-detail.html?id=news-3'
@@ -86,7 +117,7 @@ const upcomingMatchesData = [
                 faculty: 'Fakultas Ekonomi'
             }
         },
-        date: '2023-10-05',
+        date: '2025-03-25',
         time: '15:00',
         location: 'Ruang Gaming UKM',
         streaming: 'https://www.youtube.com/live'
@@ -108,7 +139,7 @@ const upcomingMatchesData = [
                 faculty: 'FMIPA'
             }
         },
-        date: '2023-10-07',
+        date: '2025-04-01',
         time: '13:00',
         location: 'Aula Fakultas Teknik',
         streaming: 'https://www.twitch.tv/live'
@@ -130,7 +161,7 @@ const upcomingMatchesData = [
                 faculty: 'Teknik Elektro'
             }
         },
-        date: '2023-10-10',
+        date: '2025-04-02',
         time: '14:30',
         location: 'Ruang Gaming UKM',
         streaming: 'https://www.youtube.com/live'
@@ -144,9 +175,9 @@ const tournamentsData = [
         name: 'Mobile Legends Campus Cup',
         game: 'mobile-legends',
         gameName: 'Mobile Legends',
-        startDate: '2023-10-15',
-        endDate: '2023-10-25',
-        registrationEnd: '2023-10-10',
+        startDate: '2025-04-01',
+        endDate: '2025-04-10',
+        registrationEnd: '2025-03-25',
         prize: 'Rp 3.000.000',
         image: 'assets/tournament1.jpg',
         status: 'registration',
@@ -156,10 +187,10 @@ const tournamentsData = [
         id: 'tournament-2',
         name: 'Valorant Campus Challenge',
         game: 'valorant',
-        gameName: 'Valorant',
-        startDate: '2023-10-07',
-        endDate: '2023-10-21',
-        registrationEnd: '2023-09-30',
+        gameName: 'Valorant CUP',
+        startDate: '2025-04-01',
+        endDate: '2025-04-10',
+        registrationEnd: '2025-03-25',
         prize: 'Rp 3.500.000',
         image: 'assets/tournament2.jpg',
         status: 'registration',
@@ -170,9 +201,9 @@ const tournamentsData = [
         name: 'PUBG Mobile Championship',
         game: 'pubg-mobile',
         gameName: 'PUBG Mobile',
-        startDate: '2023-11-05',
-        endDate: '2023-11-15',
-        registrationEnd: '2023-10-30',
+        startDate: '2025-04-05',
+        endDate: '2025-04-15',
+        registrationEnd: '2025-03-30',
         prize: 'Rp 2.500.000',
         image: 'assets/tournament3.jpg',
         status: 'registration',
@@ -182,14 +213,40 @@ const tournamentsData = [
         id: 'tournament-4',
         name: 'FIFA 23 Solo Tournament',
         game: 'fifa',
-        gameName: 'FIFA 23',
-        startDate: '2023-10-20',
-        endDate: '2023-10-22',
-        registrationEnd: '2023-10-15',
+        gameName: 'FIFA 23 Console',
+        startDate: '2025-04-20',
+        endDate: '2025-04-22',
+        registrationEnd: '2025-03-15',
         prize: 'Rp 1.500.000',
         image: 'assets/tournament4.jpg',
         status: 'registration',
         link: 'tournament-detail.html?id=tournament-4'
+    },
+    {
+        id: 'tournament-5',
+        name: 'CS2 Solo Tournament',
+        game: 'cs2',
+        gameName: 'Counter Strike 2',
+        startDate: '2025-04-03',
+        endDate: '2025-04-05',
+        registrationEnd: '2025-03-30',
+        prize: 'Rp 1.500.000',
+        image: 'assets/tournament5.jpg',
+        status: 'registration',
+        link: 'tournament-detail.html?id=tournament-5'
+    },
+    {
+        id: 'tournament-6',
+        name: 'Honor Of Kings Tournament',
+        game: 'honor-of-kings',
+        gameName: 'Honor Of Kings',
+        startDate: '2025-04-03',
+        endDate: '2025-04-05',
+        registrationEnd: '2025-03-30',
+        prize: 'Rp 1.500.000',
+        image: 'assets/tournament6.jpg',
+        status: 'registration',
+        link: 'tournament-detail.html?id=tournament-6'
     }
 ];
 
