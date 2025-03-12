@@ -1,4 +1,4 @@
-,as/**
+/**
  * Results Data
  * 
  * This file contains all the dummy data for the results page.
