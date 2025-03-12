@@ -19,7 +19,7 @@ const tournamentsData = [
         },
         format: 'Single Elimination',
         participants: 32,
-        banner: 'assets/tournament4.jpg',
+        banner: './assets/tournament4.jpg',
         status: 'completed',
         winner: {
             name: 'Budi Setiawan',
@@ -61,7 +61,7 @@ const tournamentsData = [
         },
         format: 'Double Elimination',
         participants: 16,
-        banner: 'assets/tournament1.jpg',
+        banner: './assets/tournament1.jpg',
         status: 'completed',
         winner: {
             name: 'TI Legends',
@@ -99,7 +99,7 @@ const tournamentsData = [
         },
         format: 'Points System',
         participants: 20,
-        banner: 'assets/tournament3.jpg',
+        banner: './assets/tournament3.jpg',
         status: 'completed',
         winner: {
             name: 'FM Squad',
@@ -137,7 +137,7 @@ const tournamentsData = [
         },
         format: 'Single Elimination',
         participants: 12,
-        banner: 'assets/tournament2.jpg',
+        banner: './assets/tournament2.jpg',
         status: 'completed',
         winner: {
             name: 'TI Enforcers',
@@ -295,7 +295,7 @@ const championsData = [
             ]
         },
         prize: 'Rp 3.000.000',
-        banner: 'assets/evos.jpg'
+        banner: './assets/evos.jpg'
     },
     {
         tournament_id: 'pubg-battle-june',
@@ -314,7 +314,7 @@ const championsData = [
             ]
         },
         prize: 'Rp 2.500.000',
-        banner: 'assets/nova.png'
+        banner: './assets/nova.png'
     },
     {
         tournament_id: 'valorant-challenge-may',
@@ -334,7 +334,7 @@ const championsData = [
             ]
         },
         prize: 'Rp 3.500.000',
-        banner: 'assets/t1.png'
+        banner: './assets/t1.png'
     }
 ];
 
